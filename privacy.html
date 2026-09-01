@@ -44,10 +44,16 @@
   </tr>
   <tr>
     <td><code>.../auth/gmail.metadata</code></td>
-    <td>For unread messages from the last two days only: the <code>From</code>,
-        <code>Subject</code> and <code>Date</code> headers, the message ID, and labels.
-        <strong>Message bodies and attachments are never requested and are not accessible under
-        this scope.</strong></td>
+    <td>Used by the scheduled morning job. For unread messages from the last two days only: the
+        <code>From</code>, <code>Subject</code> and <code>Date</code> headers, the message ID, and
+        labels. <strong>Message bodies are not accessible under this scope at all.</strong></td>
+  </tr>
+  <tr>
+    <td><code>.../auth/gmail.readonly</code></td>
+    <td>Used only when I explicitly ask for help triaging specific messages: the body of those
+        messages, so that I can decide whether each one needs a reply or can be deleted.
+        <strong>The scheduled job does not use this scope, and message bodies are never written to
+        any file.</strong> Neither scope permits sending, modifying or deleting mail.</td>
   </tr>
 </table>
 
@@ -77,11 +83,12 @@
 <ul>
   <li><strong>GitHub</strong> hosts the private repository described above, and therefore stores
       the briefing files containing event titles and email subject lines.</li>
-  <li><strong>An AI coding assistant</strong> runs locally on the same machine and can read those
-      briefing files when I explicitly ask it to help with something. In those cases the text I
-      show it — which may include event titles or email subject lines — is sent to the model
-      provider that serves it. This only happens when I initiate it; nothing is sent
-      automatically, and the scheduled morning job does not contact any AI service at all.</li>
+  <li><strong>An AI coding assistant</strong> runs locally on the same machine and can read the
+      briefing files, and — when I ask it to help triage a specific message — the body of that
+      message. In those cases the text is sent to the model provider that serves the assistant.
+      This only happens for messages I select, and only when I initiate it. Nothing is sent
+      automatically, and <strong>the scheduled morning job does not contact any AI service at
+      all.</strong></li>
 </ul>
 
 <h2>4. Retention and deletion</h2>
