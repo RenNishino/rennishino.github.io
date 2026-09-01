@@ -53,9 +53,23 @@
     <td>Used only when I explicitly ask for help triaging specific messages: the body of those
         messages, so that I can decide whether each one needs a reply or can be deleted.
         <strong>The scheduled job does not use this scope, and message bodies are never written to
-        any file.</strong> Neither scope permits sending, modifying or deleting mail.</td>
+        any file.</strong></td>
+  </tr>
+  <tr>
+    <td><code>.../auth/gmail.modify</code></td>
+    <td>Used only to carry out tidying actions on my own mailbox that I have explicitly approved:
+        marking messages read, starring them, adding or removing labels, archiving, and moving
+        messages to Trash. <strong>This scope cannot delete anything permanently</strong> — items
+        moved to Trash remain recoverable for 30 days. The broader
+        <code>https://mail.google.com/</code> scope, which does permit permanent deletion, is
+        deliberately never requested.</td>
   </tr>
 </table>
+
+<p>
+  No scope is used to send mail on my behalf without my say-so: replies are prepared as drafts and
+  I send them myself.
+</p>
 
 <p>No other Google service, product or scope is used.</p>
 
