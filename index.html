@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>life — a personal life-management tool</title>
+<style>
+  :root { color-scheme: light dark }
+  body { max-width: 42rem; margin: 4rem auto; padding: 0 1.25rem;
+         font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif }
+  h1 { font-size: 1.6rem; margin-bottom: .25rem }
+  h2 { font-size: 1.1rem; margin-top: 2.5rem }
+  .sub { opacity: .6; margin-top: 0 }
+  ul { padding-left: 1.2rem }
+  code { font-size: .9em; background: rgba(127,127,127,.15); padding: .1em .35em; border-radius: 3px }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid rgba(127,127,127,.3); opacity: .7; font-size: .9rem }
+</style>
+</head>
+<body>
+
+<h1>life</h1>
+<p class="sub">A personal, single-user life-management tool. Not a product, not distributed.</p>
+
+<h2>What it does</h2>
+<p>
+  <strong>life</strong> is a set of small scripts that run on my own Mac. Every morning at 07:03
+  a scheduled job assembles a single Markdown file — a briefing — and saves it to a folder on
+  that machine. The briefing lists today's calendar events, the subject lines of unread email
+  from the last two days, my own task list, and a count of how many days in the last week I
+  recorded my sleep and wrote a diary entry.
+</p>
+<p>
+  That is the entire scope. There is no server, no website that displays my data, no account to
+  sign up for, and no other user. I am the only person who uses it.
+</p>
+
+<h2>How it uses Google data</h2>
+<ul>
+  <li><strong>Google Calendar</strong> — reads events to list today's schedule and to total how
+      much time I spent on each of my priorities, identified by event colour.</li>
+  <li><strong>Gmail</strong> — reads message <em>metadata only</em> (sender, subject, date, labels)
+      using the <code>gmail.metadata</code> scope. <strong>Message bodies are never
+      requested.</strong></li>
+</ul>
+<p>
+  Details of what is stored and for how long are in the
+  <a href="privacy.html">privacy policy</a>.
+</p>
+
+<h2>Why it exists</h2>
+<p>
+  I was not measuring anything about my own life — not my sleep, not my weight, not where my
+  hours went. This tool exists to count those things and put the numbers in front of me each
+  morning, without interpreting them for me.
+</p>
+
+<footer>
+  <a href="privacy.html">Privacy policy</a> · Ren Nishino
+</footer>
+
+</body>
+</html>
